@@ -1,4 +1,4 @@
-package design3;
+package design5;
 // This file contains material supporting section 2.9 of the textbook:
 // "Object Oriented Software Engineering" and is issued under the open-source
 // license found at http://www.site.uottawa.ca/school/research/lloseng/
@@ -13,7 +13,7 @@ package design3;
  * @author Dr Timothy C. Lethbridge
  * @version July 2000
  */
-public class PointCP3
+public class PointCP3 extends PointCP5
 {
   //Instance variables ************************************************
 
@@ -87,7 +87,7 @@ public class PointCP3
    * @param pointB The second point.
    * @return The distance between the two points.
    */
-  public double getDistance(PointCP3 pointB)
+  public double getDistance(PointCP5 pointB)
   {
     // Obtain differences in X and Y, sign is not important as these values
     // will be squared later.

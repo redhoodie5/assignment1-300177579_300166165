@@ -34,7 +34,7 @@ public class PointCP2
    */
   private double theta;
 	
-  
+                                                                              //changes: no longer keeps track of typeCoord, cannot convert between polar and cartesian (for saving)
   //Constructors ******************************************************
 
   /**
