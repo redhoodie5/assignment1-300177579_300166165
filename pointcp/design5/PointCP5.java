@@ -3,6 +3,20 @@ package design5;
  * abstract class for Design 5 to implement the necessary methods
  */
 public abstract class PointCP5 {
+     //Instance variables ************************************************
+  
+  /**
+   * Contains the current value of X or RHO depending on the type
+   * of coordinates.
+   */
+  protected double xOrRho;
+  
+  /**
+   * Contains the current value of Y or THETA value depending on the
+   * type of coordinates.
+   */
+  protected double yOrTheta;
+
     public abstract double getX();
     public abstract double getY();
     public abstract double getRho();
@@ -10,6 +24,7 @@ public abstract class PointCP5 {
     public abstract double getDistance(PointCP5 pointB);
     public abstract PointCP5 rotatePoint(double rotation);
     public abstract String toString();
+    
 }
 /**
  * This class contains instances of coordinates in either polar or
@@ -23,27 +38,7 @@ public abstract class PointCP5 {
  */
 class PointCP3 extends PointCP5
 {
-  //Instance variables ************************************************
 
-  /**
-   * Contains C(artesian) or P(olar) to identify the type of
-   * coordinates that are being dealt with.
-   */
-  //private char typeCoord;
-  
-  /**
-   * Contains the current value of X or RHO depending on the type
-   * of coordinates.
-   */
-  private double x;
-  
-  /**
-   * Contains the current value of Y or THETA value depending on the
-   * type of coordinates.
-   */
-  private double y;
-	
-                                                                                    //changes: no longer keeps track of typeCoord, cannot convert between polar and cartesian (for saving)
   //Constructors ******************************************************
 
   /**
@@ -52,38 +47,37 @@ class PointCP3 extends PointCP5
   public PointCP3(char type,double xOrRho, double yOrTheta)
   {
     if(type == 'C'){
-      this.x = xOrRho;
-      this.y = yOrTheta;
+      this.xOrRho = xOrRho;
+      this.yOrTheta = yOrTheta;
     }
     else if (type == 'P'){
-      this.x = (Math.cos(Math.toRadians(yOrTheta)) * xOrRho);
-      this.y = (Math.sin(Math.toRadians(yOrTheta)) * xOrRho);
+      this.xOrRho = (Math.cos(Math.toRadians(yOrTheta)) * xOrRho);
+      this.yOrTheta = (Math.sin(Math.toRadians(yOrTheta)) * xOrRho);
     }
 
   }
-	
   
   //Instance methods **************************************************
  
  
   public double getX()
   {
-      return x;
+      return xOrRho;
   }
   
   public double getY()
   {
-      return y;
+      return yOrTheta;
   }
   
   public double getRho()
   {
-      return (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));
+      return (Math.sqrt(Math.pow(xOrRho, 2) + Math.pow(yOrTheta, 2)));
   }
   
   public double getTheta()
   {
-      return Math.toDegrees(Math.atan2(y, x));
+      return Math.toDegrees(Math.atan2(yOrTheta, xOrRho));
   }
   
 
@@ -148,24 +142,6 @@ class PointCP3 extends PointCP5
  */
 class PointCP2 extends PointCP5
 {
-  //Instance variables ************************************************
-
-  /**
-   * Contains C(artesian) or P(olar) to identify the type of
-   * coordinates that are being dealt with.
-   */
-  
-  /**
-   * Contains the current value of X or RHO depending on the type
-   * of coordinates.
-   */
-  private double rho;
-  
-  /**
-   * Contains the current value of Y or THETA value depending on the
-   * type of coordinates.
-   */
-  private double theta;
 	
                                                                               //changes: no longer keeps track of typeCoord, cannot convert between polar and cartesian (for saving)
   //Constructors ******************************************************
@@ -176,12 +152,12 @@ class PointCP2 extends PointCP5
   public PointCP2(char type ,double xOrRho, double yOrTheta)
   {
     if(type == 'P'){
-      this.rho = xOrRho;
-      this.theta = yOrTheta;
+      this.xOrRho = xOrRho;
+      this.yOrTheta = yOrTheta;
     }
     else{
-      this.rho = (Math.sqrt(Math.pow(xOrRho, 2) + Math.pow(yOrTheta, 2))); 
-      this.theta = Math.toDegrees(Math.atan2(yOrTheta, xOrRho));
+      this.xOrRho = (Math.sqrt(Math.pow(xOrRho, 2) + Math.pow(yOrTheta, 2))); 
+      this.yOrTheta = Math.toDegrees(Math.atan2(yOrTheta, xOrRho));
     }
   }
 	
@@ -191,22 +167,22 @@ class PointCP2 extends PointCP5
  
   public double getX()
   {
-      return (Math.cos(Math.toRadians(theta)) * rho);
+      return (Math.cos(Math.toRadians(yOrTheta)) * xOrRho);
   }
   
   public double getY()
   {
-    return (Math.sin(Math.toRadians(theta)) * rho);
+    return (Math.sin(Math.toRadians(yOrTheta)) * xOrRho);
   }
   
   public double getRho()
   {
-      return rho;
+      return xOrRho;
   }
   
   public double getTheta()
   {
-      return theta;
+      return yOrTheta;
   }
 
 
