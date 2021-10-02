@@ -1,4 +1,4 @@
-package design5;
+
 /**
  * abstract class for Design 5 to implement the necessary methods
  */
@@ -95,6 +95,13 @@ class PointCP3 extends PointCP5
   }
 
   /**
+   * Produces a PointCP2 class with the same point
+   */
+  public PointCP2 ConvertStorageToPolar(){
+    return new PointCP2(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)),Math.toDegrees(Math.atan2(y, x)));
+  }
+
+  /**
    * Returns information about the coordinates.
    *
    * @return A String containing information about the coordinates.
@@ -188,6 +195,14 @@ class PointCP2 extends PointCP5
     return new PointCP2(
       (Math.cos(radRotation) * X) - (Math.sin(radRotation) * Y),
       (Math.sin(radRotation) * X) + (Math.cos(radRotation) * Y));
+  }
+
+  /**
+   * Converts PointCP2 to PointCP3
+   */
+  public PointCP3 convertStorageToCartesian()
+  {
+    return new PointCP3((Math.cos(Math.toRadians(theta)) * rho),Math.sin(Math.toRadians(theta)) * rho);
   }
 
   /**

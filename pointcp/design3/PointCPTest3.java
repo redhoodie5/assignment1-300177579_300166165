@@ -1,11 +1,11 @@
-package design5;
-
+package design3;
 // This file contains material supporting section 2.9 of the textbook:
 // This file contains material supporting section 2.9 of the textbook:
 // "Object Oriented Software Engineering" and is issued under the open-source
 // license found at http://www.site.uottawa.ca/school/research/lloseng/
 
 import java.io.*;
+import design3.*;
 
 /**
  * This class prompts the user for a set of coordinates, and then 
@@ -16,7 +16,7 @@ import java.io.*;
  * @author Paul Holden
  * @version July 2000
  */
-public class PointCP5Test
+public class PointCPTest3
 {
   //Class methods *****************************************************
 
@@ -29,14 +29,13 @@ public class PointCP5Test
    * If the user does not enter a valid sequence at the command line,
    * the program will prompte him or her.
    *
-   * @param args[0] The coordinate type.  P for polar and C for
-   *                cartesian.
+   *
    * @param args[1] The value of X or RHO.
    * @param args[2] The value of Y or THETA.
    */
   public static void main(String[] args)
   {
-    PointCP5 point;
+    PointCP3 point;
 
     System.out.println("Cartesian-Polar Coordinates Conversion Program");
 
@@ -45,7 +44,7 @@ public class PointCP5Test
     // If he did not, prompt the user for them.
     try
     {
-      point = new PointCP5(args[0].toUpperCase().charAt(0), 
+      point = new PointCP3(args[0].toUpperCase().charAt(0), 
         Double.valueOf(args[1]).doubleValue(), 
         Double.valueOf(args[2]).doubleValue());
     }
@@ -66,11 +65,18 @@ public class PointCP5Test
         return;
       }
     }
-    System.out.println("\nYou entered:\n" + point);
-    point.convertStorageToCartesian();
+    //cannot change storage type
+    /*System.out.println("\nYou entered:\n" + point);
+    //point.convertStorageToCartesian();  impossible
     System.out.println("\nAfter asking to store as Cartesian:\n" + point);
     point.convertStorageToPolar();
     System.out.println("\nAfter asking to store as Polar:\n" + point);
+
+    */
+    //Testing answers
+    System.out.println(point);
+    System.out.println("you entered X = " + point.getX() + " , Y = " + point.getY());
+    System.out.println("In Polar coordinates, that is " + point.getRho() + " , Y = " + point.getTheta());
   }
 
   /**
@@ -83,7 +89,7 @@ public class PointCP5Test
    * @throws IOException If there is an error getting input from
    *         the user.
    */
-  private static PointCP5 getInput() throws IOException
+  private static PointCP3 getInput() throws IOException
   {
     byte[] buffer = new byte[1024];  //Buffer to hold byte input
     boolean isOK = false;  // Flag set if input correct
@@ -161,6 +167,6 @@ public class PointCP5Test
       isOK = false;
     }
     //Return a new PointCP object
-    return (new PointCP5(coordType, a, b));
+    return (new PointCP3(coordType, a, b));
   }
 }

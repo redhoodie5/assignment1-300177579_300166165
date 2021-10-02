@@ -1,4 +1,6 @@
-package code_part2;
+//package code_part2;
+
+//import code_part2.*;
 /**
  * testing for the classes Employee and Address
  * to test the classes, please run this program
@@ -10,11 +12,12 @@ package code_part2;
  */
 public class Test {
     public static void main(String[] args) {
-        System.out.println("the example provided in part 2:");
+        System.out.println("The example to be run in part 2:");
         Employee employee = part2Example();
         System.out.println(employee.toString());
         String o1 = employee.getName();
         System.out.println("o1 = " + o1);
+        System.out.println("args class : " + args.getClass() + "\targs length : " + args.length);
     }
 
     
