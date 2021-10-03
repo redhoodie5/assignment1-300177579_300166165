@@ -43,9 +43,11 @@ public class Employee{
         this.name = name;
         this.hours = hours;
         this.rate = rate;
-        addresses = new Address[5];
+        this.addresses = new Address[5];
         for(int i = 0; i < 5; i++){
-            this.addresses[i] = addresses[i].copyAddress();
+            if(addresses.length > (i+1)){
+                this.addresses[i] = addresses[i].copyAddress();
+            }
         }
     }
 
@@ -65,7 +67,11 @@ public class Employee{
     public String toString(){
         String addressString = "";
         for(int i = 0; i < addresses.length; i++){
-            addressString = addressString + "\n\tAddress:" + (i+1) + "\n" + addresses[i].toString();
+            System.out.println("A : " + i);
+            if(addresses[i] != null){
+                addressString = addressString + "\n\tAddress:" + (i+1) + "\n" + addresses[i].toString();
+            }
+            
         }
         return ("Name :\t" + name + "\n" +
                 "Hours :\t" + hours + "\n" +

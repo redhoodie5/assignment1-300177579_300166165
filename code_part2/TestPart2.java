@@ -15,6 +15,7 @@ public class TestPart2 {
         System.out.println(employee.toString());
         String o1 = employee.getName();
         System.out.println("o1 = " + o1);
+        System.out.println("size of array" + employee.getAddresses().length);
         System.out.println("args class : " + args.getClass() + "\targs length : " + args.length);
     }
 
