@@ -45,7 +45,7 @@ public class Employee{
         this.rate = rate;
         this.addresses = new Address[5];
         for(int i = 0; i < 5; i++){
-            if(addresses.length > (i+1)){
+            if(addresses.length > (i)){
                 this.addresses[i] = addresses[i].copyAddress();
             }
         }
