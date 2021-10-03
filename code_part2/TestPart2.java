@@ -1,6 +1,4 @@
-//package code_part2;
 
-//import code_part2.*;
 /**
  * testing for the classes Employee and Address
  * to test the classes, please run this program
@@ -10,7 +8,7 @@
  * @author Cat Wong
  * Student Number: 300166165
  */
-public class Test {
+public class TestPart2 {
     public static void main(String[] args) {
         System.out.println("The example to be run in part 2:");
         Employee employee = part2Example();

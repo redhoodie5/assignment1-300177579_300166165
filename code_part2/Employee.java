@@ -1,4 +1,4 @@
-package code_part2;
+
 /**
  * This class holds the information of an employee
  * @author Meigh Colman 
@@ -43,10 +43,10 @@ public class Employee{
         this.name = name;
         this.hours = hours;
         this.rate = rate;
-        this.addresses = addresses;
-        /*for(int i = 0; i < 5; i++){
+        addresses = new Address[5];
+        for(int i = 0; i < 5; i++){
             this.addresses[i] = addresses[i].copyAddress();
-        }*/
+        }
     }
 
     public String getName(){

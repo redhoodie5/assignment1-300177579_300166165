@@ -1,4 +1,4 @@
-package code_part2;
+
 /**
  * This class holds an address of a house
  * It doesn't seem to be able to contain an apartment address since there's no way to add a letter or apartment number to the address

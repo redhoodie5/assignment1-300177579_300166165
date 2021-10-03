@@ -1,14 +1,7 @@
-
-/**
- * tests the classes PointCP1, PointCP2 and PointCP3
- * 
- * @author Meigh Colman
- * Student Number: 300177579
- * @author Cat Wong
- * Student Number: 300166165
- */
-public class Test {
-    
+public class TestPrintAtEnd {
+    /**
+     * Number of times the tests are run (number of datapoints)
+     */
     static final int NUM_DATAPOINTS = 12;
 
     /**
@@ -27,10 +20,10 @@ public class Test {
 
     /**
      * Number of data saving types 
-     *  - 0 = PointCP3
-     *  - 1 = PointCP1 polar
-     *  - 2 = PointCP1 Cartesian
-     *  - 3 = PointCP2
+     *  - 0 = PointCP1 polar
+     *  - 1 = PointCP1 cartesian
+     *  - 2 = PolarCP2
+     *  - 3 = PolarCP3
      */
     static final int NUM_TYPES = 4;
 
@@ -57,7 +50,7 @@ public class Test {
     public static void main(String[] args) {
         averages = new double[NUM_TESTS][NUM_DATAPOINTS + 1][NUM_TYPES];
 
-        for (counter = 0; counter < NUM_DATAPOINTS; counter++){
+        for (counter = 0; counter < NUM_TESTS; counter++){
             runTests();
         }
         calculateFinalAverages();
@@ -108,12 +101,11 @@ public class Test {
             point2Time += (System.currentTimeMillis() - time);            
         }
     
-        /*/Printing times
+        //Printing times
         System.out.println("\npt1 get X Cartesian : " + point1CartesianTime);
         System.out.println("pt5 get X Cartesian : " + point3Time);
         System.out.println("\npt1 get X Polar : " + point1PolarTime);
         System.out.println("pt5 get X Polar : " + point2Time);
-        */
 
         //Saving average times
         saveAverage(0, 1, point1PolarTime);
@@ -165,12 +157,10 @@ public class Test {
             point5Polar.getY();
             point2Time += (System.currentTimeMillis() - time);
         }
-        /*
         System.out.println("\npt1 get Y Cartesian : " + point1CartesianTime);
         System.out.println("pt5 get Y Cartesian : " + point3Time);
         System.out.println("\npt1 get Y Polar : " + point1PolarTime);
         System.out.println("pt5 get Y Polar : " + point2Time);
-        */
 
         saveAverage(1, 1, point1PolarTime);
         saveAverage(1, 2, point1CartesianTime);
@@ -222,17 +212,15 @@ public class Test {
             point2Time += (System.currentTimeMillis() - time);
             
         }
-        /*
         System.out.println("\npt1 get Rho Cartesian : " + point1CartesianTime);
         System.out.println("pt5 get Rho Cartesian : " + point3Time);
         System.out.println("\npt1 get Rho Polar : " + point1PolarTime);
         System.out.println("pt5 get Rho Polar : " + point2Time);
-        */
 
-        saveAverage(2, 1, point1PolarTime);
-        saveAverage(2, 2, point1CartesianTime);
-        saveAverage(2, 3, point2Time);
-        saveAverage(2, 0, point3Time);
+        saveAverage(8, 1, point1PolarTime);
+        saveAverage(8, 2, point1CartesianTime);
+        saveAverage(8, 3, point2Time);
+        saveAverage(8, 0, point3Time);
     }
 
     /**
@@ -278,17 +266,15 @@ public class Test {
             point5Polar.getTheta();
             point2Time += (System.currentTimeMillis() - time);
         }
-        /*
         System.out.println("\npt1 get Theta Cartesian : " + point1CartesianTime);
         System.out.println("pt5 get Theta Cartesian : " + point3Time);
         System.out.println("\npt1 get Theta Polar : " + point1PolarTime);
         System.out.println("pt5 get Theta Polar : " + point2Time);
-        */
-
-        saveAverage(3, 1, point1PolarTime);
-        saveAverage(3, 2, point1CartesianTime);
-        saveAverage(3, 3, point2Time);
-        saveAverage(3, 0, point3Time);
+        
+        saveAverage(8, 1, point1PolarTime);
+        saveAverage(8, 2, point1CartesianTime);
+        saveAverage(8, 3, point2Time);
+        saveAverage(8, 0, point3Time);
     }
     
     /**
@@ -333,13 +319,11 @@ public class Test {
             point2Cartesian.toString();
             point2Time += (System.currentTimeMillis() - time);
         }
-        /*
         System.out.println( "\npt1 Cartesian get String : " + point1CartesianTime);
         System.out.println( "pt1 Polar get String : " + point1PolarTime);
         System.out.println( "\npt2 get String : " +point2Time);
         System.out.println( "pt3 get String : " + point3Time);
-        */
-        //Saving averages
+        
         saveAverage(4, 1, point1PolarTime);
         saveAverage(4, 2, point1CartesianTime);
         saveAverage(4, 3, point2Time);
@@ -361,26 +345,22 @@ public class Test {
             double x = (int)(Math.random()*100);
             double y = (int)(Math.random()*100);
 
-            //testing design 1
             PointCP point1 = new PointCP('C', x, y);
             time = System.currentTimeMillis();
             point1.convertStorageToPolar();
             point1Time += (System.currentTimeMillis() - time);
 
-            //design 3
             PointCP3 point3 = new PointCP3( x, y);
             time = System.currentTimeMillis();
             PointCP2 point2 = point3.ConvertStorageToPolar();
             point3Time += (System.currentTimeMillis() - time);
         }
-        /*
+
         System.out.println("\npt1 to Polar : " + point1Time);
         System.out.println("pt3 to Polar : " + point3Time);
-        */
 
-        //saving averages
-        saveAverage(5, 2, point1Time);
-        saveAverage(5, 0, point3Time);
+        saveAverage(6, 2, point1Time);
+        saveAverage(6, 0, point3Time);
     }
 
     /**
@@ -398,28 +378,24 @@ public class Test {
             double rho = (int)(Math.random()*100);
             double theta = (int)(Math.random()*100);
 
-            //testing design 1
             PointCP point1 = new PointCP('P', rho, theta);
             time = System.currentTimeMillis();
             point1.convertStorageToCartesian();
             point1.toString();
             point1Time += (System.currentTimeMillis() - time);
 
-            //testing design 2
             PointCP2 point2 = new PointCP2( rho, theta);
             time = System.currentTimeMillis();
-            PointCP3 point3 = point2.convertStorageToCartesian(); 
+            PointCP3 point3 = point2.convertStorageToCartesian(); //One of the downsides of design 5 is to change the type of storage is a new instance must be created
+            point3.toString();
             point2Time += (System.currentTimeMillis() - time);
         }
-        /*
+
         System.out.println("\npt1 to Cartesian : " + point1Time);
         System.out.println("pt3 to Cartesian : " + point2Time);
-        */
         
-        //saving times
         saveAverage(6, 1, point1Time);
         saveAverage(6, 3, point2Time);
-        
     }
    
     /**
@@ -465,14 +441,11 @@ public class Test {
             point2Cartesian.rotatePoint(rotation);
             point2Time += (System.currentTimeMillis() - time);
         }
-        /*
         System.out.println( "\npt1 Cartesian Rotate : " + point1CartesianTime);
         System.out.println( "pt1 Polar get Rotate : " + point1PolarTime);
         System.out.println( "\npt2 get Rotate : " +point2Time);
         System.out.println( "pt3 get Rotate : " + point3Time);
-        */
 
-        //saving times
         saveAverage(7, 1, point1PolarTime);
         saveAverage(7, 2, point1CartesianTime);
         saveAverage(7, 3, point2Time);
@@ -492,8 +465,8 @@ public class Test {
         long time;
 
         for(long i = 0; i < numCycles; i++){
-            double xOrRhoA = (double)((int)(Math.random()*100));
-            double yOrThetaA = (double)((int)(Math.random()*100));
+            double xOrRhoA = (int)(Math.random()*100);
+            double yOrThetaA = (int)(Math.random()*100);
 
             double xOrRhoB = (int)(Math.random()*100);
             double yOrThetaB = (int)(Math.random()*100);
@@ -528,14 +501,11 @@ public class Test {
             point2Cartesian.getDistance(point2Cartesian2);
             point2Time += (System.currentTimeMillis() - time);
         }
-        /*
         System.out.println( "\npt1 Cartesian Distance : " + point1CartesianTime);
         System.out.println( "pt1 Polar get Distance : " + point1PolarTime);
         System.out.println( "\npt2 get Distance : " +point2Time);
         System.out.println( "pt3 get Distance : " + point3Time);
-        */
 
-        //saving time
         saveAverage(8, 1, point1PolarTime);
         saveAverage(8, 2, point1CartesianTime);
         saveAverage(8, 3, point2Time);
@@ -546,11 +516,8 @@ public class Test {
      * picks random numbers of tests to run and then runs that many trials of each test
      */
     private static void runTests(){
-        //picking a number of times to run the tests
-        numCycles = (long)(Math.random()*1000000 )+1;
-        //System.out.println("Number of Cycles : " + numCycles);
-
-        //running all the tests numCycles times
+        numCycles = (long)(Math.random()*10)+1;
+        System.out.println("Number of Cycles : " + numCycles);
         testGetX(numCycles);
         testGetY(numCycles);
         testGetRho(numCycles);
@@ -564,12 +531,12 @@ public class Test {
 
     /**
      * calculates the average time for the test run and saves it in the 'avarage' array
-     * @param test      index of the test
-     * @param type      index of the class type
-     * @param time      amount of time the tests took
+     * @param test
+     * @param type
+     * @param time
      */
     private static void saveAverage( int test, int type, int time ){
-        double avg = (double)time/(double)numCycles;
+        double avg = time/numCycles;
         averages[test][counter][type] = avg;
     }
     
@@ -579,15 +546,11 @@ public class Test {
      * @param type
      */
     private static void addFinalAverage(int test, int type){
-        double avg = 0;
-
-        //calculating collective time
+        int avg = 0;
         for(int i = 0; i < NUM_DATAPOINTS; i++){
             avg += averages[test][i][type];
         }
-
-        //calculating the average of averages in a column
-        averages[test][(averages[test].length )- 1][type] = avg/(double)NUM_DATAPOINTS;
+        averages[test][(averages[test].length )- 1][type] = avg/NUM_DATAPOINTS;
     }
 
     /**
@@ -605,11 +568,11 @@ public class Test {
      * Prints all the values stored in averages
      */
     private static void printAverages(){
-        for(int i = 0; i < NUM_TESTS; i++){                 //for each method tested...
+        for(int i = 0; i < NUM_TESTS; i++){
             System.out.println("METHOD #" + i);
-            for(int k = 0; k < NUM_TYPES; k++){             //for each data type...
+            for(int k = 0; k < NUM_TYPES; k++){
                 System.out.println("\tTYPE #" + k);
-                for(int m = 0; m < NUM_DATAPOINTS; m++){    //for each average time...
+                for(int m = 0; m < NUM_DATAPOINTS; m++){
                     System.out.println("\t\t\tDatapoint #" + m + " is "+ averages[i][m][k]);
                 }
                 System.out.println("\tTotal Average : " + averages[i][NUM_DATAPOINTS][k]);
