@@ -1,4 +1,4 @@
-
+import design5.*;
 /**
  * tests the classes PointCP1, PointCP2 and PointCP3
  * 

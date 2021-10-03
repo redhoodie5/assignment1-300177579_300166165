@@ -3,7 +3,6 @@
 // license found at http://www.site.uottawa.ca/school/research/lloseng/
 
 import java.io.*;
-
 /**
  * This class prompts the user for a set of coordinates, and then 
  * converts them from polar to cartesian or vice-versa.
